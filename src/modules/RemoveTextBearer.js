@@ -1,0 +1,1 @@
+export default token => token.slice(7, token.length)
