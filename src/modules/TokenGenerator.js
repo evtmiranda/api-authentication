@@ -1,6 +1,5 @@
 import { sign } from 'jsonwebtoken';
-import { secretKey, secondsTokenDuration } from '../../config';
-
+import { secretKey, milliSecondsTokenDuration } from '../config/constants';
 class TokenGenerator {
     static authenticate(username, password) {
         let mockedUsername = 'admin'
@@ -15,13 +14,13 @@ class TokenGenerator {
 
         let token = sign({ username },
             secretKey,
-            { expiresIn: secondsTokenDuration }
+            { expiresIn: milliSecondsTokenDuration }
         )
 
         return {
             success: true,
             token,
-            expiresIn: secondsTokenDuration
+            expiresIn: milliSecondsTokenDuration
         }
     }
 }

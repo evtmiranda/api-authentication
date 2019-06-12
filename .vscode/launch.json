@@ -9,7 +9,7 @@
             "request": "launch",
             "protocol": "inspector",
             "name": "Node ES6 Debugger",
-            "program": "${workspaceFolder}/server.js",
+            "program": "${workspaceFolder}/src/index.js",
             "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/babel-node",
             "runtimeArgs": [
                 "--presets",

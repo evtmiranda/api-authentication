@@ -1,19 +1,18 @@
 import jwt from 'jsonwebtoken'
-import removeTextBearer from './src/modules/RemoveTextBearer'
-import { secretKey } from './config'
+import { secretKey } from '../config/constants'
 import { isUndefined } from 'util';
 
-export const checkToken = (req, res, next) => {
+export const authenticate = (req, res, next) => {
     let token = req.headers['authorization']
 
     if(isUndefined(token)){
-        res.status(400).json({
+        return res.status(400).json({
             success: false,
             message: 'The token is required.'
         })
     }
 
-    token = removeTextBearer(token)
+    token = token.slice(7, token.length)
 
     jwt.verify(token, secretKey, (err, decoded) => {
         if (err) {
