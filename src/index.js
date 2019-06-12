@@ -1,6 +1,6 @@
 import express, { json } from 'express'
 import cors from 'cors'
-import { port } from './config/constants'
+import { port } from '../config/constants'
 
 const app = express()
 app.use(json())

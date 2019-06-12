@@ -1,5 +1,5 @@
 import jwt from 'jsonwebtoken'
-import { secretKey } from '../config/constants'
+import { secretKey } from '../../config/constants'
 import { isUndefined } from 'util';
 
 export const authenticate = (req, res, next) => {

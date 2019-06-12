@@ -2,16 +2,16 @@ import TokenGenerator from '../modules/TokenGenerator'
 
 export const authenticate = async (req, res) => {
     try {
-        let { username, password } = req.body
+        let { email, userKey } = req.body
 
-        if (!(username && password)) {
+        if (!(email && userKey)) {
             res.status(400).json({
                 success: false,
                 message: 'Bad request.'
             })
         }
 
-        const response = TokenGenerator.authenticate(username, password)
+        const response = await TokenGenerator.authenticate(email, userKey)
 
         if (!response.success) {
             res.status(403).json(response)
